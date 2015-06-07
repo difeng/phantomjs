@@ -112,7 +112,7 @@ public:
     Q_PRIVATE_SLOT(d_func(), void replyDownloadData(QByteArray))
     Q_PRIVATE_SLOT(d_func(), void replyFinished())
     Q_PRIVATE_SLOT(d_func(), void replyDownloadMetaData(QList<QPair<QByteArray,QByteArray> >,
-                                                        int, QString, bool, QSharedPointer<char>,
+                                                        int, QString,QVariant, bool, QSharedPointer<char>,
                                                         qint64, bool))
     Q_PRIVATE_SLOT(d_func(), void replyDownloadProgressSlot(qint64,qint64))
     Q_PRIVATE_SLOT(d_func(), void httpAuthenticationRequired(const QHttpNetworkRequest &, QAuthenticator *))
@@ -200,11 +200,11 @@ public:
     bool synchronous;
 
     State state;
-
+    QString peerNetworkAddressX;
     // from http thread
     int statusCode;
     QString reasonPhrase;
-
+    QVariant peerNetworkAddress;
     // upload
     QNonContiguousByteDevice* createUploadByteDevice();
     QSharedPointer<QNonContiguousByteDevice> uploadByteDevice;
@@ -278,7 +278,7 @@ public:
     // From HTTP thread:
     void replyDownloadData(QByteArray);
     void replyFinished();
-    void replyDownloadMetaData(QList<QPair<QByteArray,QByteArray> >, int, QString, bool,
+    void replyDownloadMetaData(QList<QPair<QByteArray,QByteArray> >, int, QString,QVariant, bool,
                                QSharedPointer<char>, qint64, bool);
     void replyDownloadProgressSlot(qint64,qint64);
     void httpAuthenticationRequired(const QHttpNetworkRequest &request, QAuthenticator *auth);

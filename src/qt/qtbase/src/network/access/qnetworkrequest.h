@@ -70,6 +70,7 @@ public:
     enum Attribute {
         HttpStatusCodeAttribute,
         HttpReasonPhraseAttribute,
+        PeerNetworkAddressAttribute, // SGW test
         RedirectionTargetAttribute,
         ConnectionEncryptedAttribute,
         CacheLoadControlAttribute,

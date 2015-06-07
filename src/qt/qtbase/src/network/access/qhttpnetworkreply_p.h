@@ -114,6 +114,10 @@ public:
     void setErrorString(const QString &error);
 
     QString reasonPhrase() const;
+  
+    QVariant peerNetworkAddress() const;
+    void setPeerNetworkAddress(const QVariant &addr); 
+
 
     qint64 bytesAvailable() const;
     qint64 bytesAvailableNextBlock() const;
@@ -222,6 +226,7 @@ public:
     int minorVersion;
     QString errorString;
     QString reasonPhrase;
+    QVariant peerNetworkAddress;
     qint64 bodyLength;
     qint64 contentRead;
     qint64 totalProgress;

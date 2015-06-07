@@ -47,6 +47,7 @@ function createHAR(address, title, startTime, resources)
             response: {
                 status: endReply.status,
                 statusText: endReply.statusText,
+                serverIPAddress: endReply.peerNetworkAddress,
                 httpVersion: "HTTP/1.1",
                 cookies: [],
                 headers: endReply.headers,
